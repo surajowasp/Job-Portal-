@@ -87,7 +87,7 @@ require_once("../db.php");
                   <li><a href="index.php"><i class="fa fa-address-card-o"></i> My Applications</a></li>
                   <li class="active"><a href="mailbox.php"><i class="fa fa-envelope"></i> Mailbox</a></li>
                   <li><a href="settings.php"><i class="fa fa-gear"></i> Settings</a></li>
-                  <li><a href="../logout.php"><i class="fa fa-arrow-circle-o-right"></i> Logout</a></li>
+                  <li><a href="../logout.php" id="logoutButton"><i class="fa fa-arrow-circle-o-right"></i> Logout</a></li>
                 </ul>
               </div>
             </div>
@@ -164,6 +164,18 @@ require_once("../db.php");
   $(function () {
     $('#example1').DataTable();
   })
+
+  document.getElementById('logoutButton').addEventListener('click', function(event) {
+    event.preventDefault();
+    
+    // Show confirmation dialog
+    var confirmation = confirm("Are you sure you want to logout?");
+    
+    // If user confirms, redirect to logout page
+    if (confirmation) {
+      window.location.href = '../logout.php';
+    }
+  });
 </script>
 
 </body>

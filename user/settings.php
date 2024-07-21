@@ -79,14 +79,13 @@ require_once("../db.php");
                 <h3 class="box-title">Welcome <b><?php echo $_SESSION['name']; ?></b></h3>
               </div>
               <div class="box-body no-padding">
-                 <ul class="nav nav-pills nav-stacked">
+                <ul class="nav nav-pills nav-stacked">
                   <li><a href="edit-profile.php"><i class="fa fa-user"></i> Edit Profile</a></li>
                   <li><a href="index.php"><i class="fa fa-address-card-o"></i> My Applications</a></li>
                   <li><a href="../jobs.php"><i class="fa fa-list-ul"></i> Jobs</a></li>
                   <li><a href="mailbox.php"><i class="fa fa-envelope"></i> Mailbox</a></li>
                   <li class="active"><a href="settings.php"><i class="fa fa-gear"></i> Settings</a></li>
-                  <li><a href="../logout.php"><i class="fa fa-arrow-circle-o-right"></i> Logout</a></li>
-                
+                  <li><a href="../logout.php" id="logoutButton"><i class="fa fa-arrow-circle-o-right"></i> Logout</a></li>
                 </ul>
               </div>
             </div>
@@ -131,7 +130,7 @@ require_once("../db.php");
 
   <footer class="main-footer" style="margin-left: 0px;">
     <div class="text-center">
-      <strong>Copyright &copy; 2024<a href="learningfromscratch.online">Job Portal</a>.</strong> All rights
+      <strong>Copyright &copy; 2024 <a href="learningfromscratch.online">Job Portal</a>.</strong> All rights
     reserved.
     </div>
   </footer>
@@ -151,6 +150,18 @@ require_once("../db.php");
 <!-- AdminLTE App -->
 <script src="../js/adminlte.min.js"></script>
 <script>
+  document.getElementById('logoutButton').addEventListener('click', function(event) {
+    event.preventDefault();
+    
+    // Show confirmation dialog
+    var confirmation = confirm("Are you sure you want to logout?");
+    
+    // If user confirms, redirect to logout page
+    if (confirmation) {
+      window.location.href = '../logout.php';
+    }
+  });
+
   $("#changePassword").on("submit", function(e) {
     e.preventDefault();
     if( $('#password').val() != $('#cpassword').val() ) {
