@@ -95,7 +95,7 @@ if(isset($_SESSION['id_user']) || isset($_SESSION['id_company'])) {
     <section class="content-header">
       <div class="container">
         <div class="row latest-job margin-top-50 margin-bottom-20">
-          <h1 class="text-center margin-bottom-20">Sign Up</h1>
+          <h1 class="text-center margin-bottom-20">Login</h1>
           <div class="col-md-6 latest-job ">
             <div class="small-box bg-green padding-5">
               <div class="inner">

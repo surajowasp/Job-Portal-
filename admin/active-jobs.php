@@ -80,9 +80,9 @@ require_once("../db.php");
                 <ul class="nav nav-pills nav-stacked">
                   <li><a href="dashboard.php"><i class="fa fa-dashboard"></i> Dashboard</a></li>
                   <li class="active"><a href="active-jobs.php"><i class="fa fa-briefcase"></i> Active Jobs</a></li>
-                  <li><a href="applications.php"><i class="fa fa-address-card-o"></i> Applications</a></li>
+                  <li><a href="applications.php"><i class="fa fa-address-card-o"></i> Candidates</a></li>
                   <li><a href="companies.php"><i class="fa fa-building"></i> Companies</a></li>
-                  <li><a href="../logout.php"><i class="fa fa-arrow-circle-o-right"></i> Logout</a></li>
+                  <li><a href="../logout.php" id="logout"><i class="fa fa-arrow-circle-o-right"></i> Logout</a></li>
                 </ul>
               </div>
             </div>
@@ -114,7 +114,7 @@ require_once("../db.php");
                         <td><?php echo $row['companyname']; ?></td>
                         <td><?php echo date("d-M-Y", strtotime($row['createdat'])); ?></td>
                         <td><a href="view-job-post.php?id=<?php echo $row['id_jobpost']; ?>"><i class="fa fa-address-card-o"></i></a></td>
-                        <td><a href="delete-job-post.php?id=<?php echo $row['id_jobpost']; ?>"><i class="fa fa-trash"></i></a></td>
+                        <td><a href="delete-job-post.php?id=<?php echo $row['id_jobpost']; ?>" class="delete-job"><i class="fa fa-trash"></i></a></td>
                       </tr>  
                             <?php
                         }
@@ -176,7 +176,7 @@ require_once("../db.php");
 
   <footer class="main-footer" style="margin-left: 0px;">
     <div class="text-center">
-      <strong>Copyright &copy; 2024 <a href="learningfromscratch.online">Job Portal</a>.</strong> All rights
+      <strong>Copyright &copy; 4 <a href="learningfromscratch.online">Job Portal</a>.</strong> All rights
     reserved.
     </div>
   </footer>
@@ -207,6 +207,14 @@ require_once("../db.php");
       'ordering'    : true,
       'info'        : true,
       'autoWidth'   : false
+    });
+
+    $('.delete-job').on('click', function(e) {
+      e.preventDefault();
+      var link = $(this).attr('href');
+      if (confirm('Are you sure you want to delete this job post?')) {
+        window.location.href = link;
+      }
     });
   });
 </script>

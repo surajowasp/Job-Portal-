@@ -111,8 +111,8 @@ require_once("../db.php");
                 </form>
               </div>
               <div class="col-md-6">
-                <form action="deactivate-account.php" method="post">
-                  <label><input type="checkbox" required> I Want To Deactivate My Account</label>
+                <form id="deactivateAccount" action="deactivate-account.php" method="post">
+                  <label><input type="checkbox" required> I Want To Delete My Account</label>
                   <button type="submit" class="btn btn-danger btn-flat btn-lg">Deactivate My Account</button>
                 </form>
               </div>
@@ -164,10 +164,20 @@ require_once("../db.php");
 
   $("#changePassword").on("submit", function(e) {
     e.preventDefault();
-    if( $('#password').val() != $('#cpassword').val() ) {
+    if ($('#password').val() != $('#cpassword').val()) {
       $('#passwordError').show();
     } else {
-      $(this).unbind('submit').submit();
+      var confirmChange = confirm("Are you sure you want to change your password?");
+      if (confirmChange) {
+        $(this).unbind('submit').submit();
+      }
+    }
+  });
+
+  $("#deactivateAccount").on("submit", function(e) {
+    var confirmDeactivate = confirm("Are you sure you want to deactivate your account?");
+    if (!confirmDeactivate) {
+      e.preventDefault();
     }
   });
 </script>

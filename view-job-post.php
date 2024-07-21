@@ -101,7 +101,7 @@ require_once("db.php");
             <?php 
             if(isset($_SESSION["id_user"]) && empty($_SESSION['companyLogged'])) { ?>
             <div>
-              <a href="apply.php?id=<?php echo $row['id_jobpost']; ?>" class="btn btn-success btn-flat margin-top-50">Apply</a>
+              <a href="apply.php?id=<?php echo $row['id_jobpost']; ?>" class="btn btn-success btn-flat margin-top-50" id="applyButton">Apply</a>
             </div>
             <?php } ?>
             
@@ -158,7 +158,15 @@ require_once("db.php");
 <!-- AdminLTE App -->
 <script src="js/adminlte.min.js"></script>
 
-
+<!-- Confirmation script -->
+<script>
+  document.getElementById('applyButton').addEventListener('click', function(event) {
+    var confirmApply = confirm('Are you sure you want to apply for this job?');
+    if (!confirmApply) {
+      event.preventDefault();
+    }
+  });
+</script>
 
 </body>
 </html>

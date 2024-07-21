@@ -100,7 +100,7 @@ require_once("../db.php");
           <div class="col-md-9 bg-white padding-2">
             <h2><i>Create Job Post</i></h2>
             <div class="row">
-              <form method="post" action="addpost.php">
+              <form method="post" action="addpost.php" id="createJobForm">
                 <div class="col-md-12 latest-job ">
                   <div class="form-group">
                     <input class="form-control input-lg" type="text" id="jobtitle" name="jobtitle" placeholder="Job Title">
@@ -115,7 +115,7 @@ require_once("../db.php");
                     <input type="number" class="form-control  input-lg" id="maximumsalary" name="maximumsalary" placeholder="Maximum Salary" required="">
                   </div>
                   <div class="form-group">
-                <input type="number" class="form-control  input-lg" id="experience" autocomplete="off" name="experience" placeholder="Experience (in Years) Required" required="">
+                    <input type="number" class="form-control  input-lg" id="experience" autocomplete="off" name="experience" placeholder="Experience (in Years) Required" required="">
                   </div>
                   <div class="form-group">
                     <input type="text" class="form-control  input-lg" id="qualification" name="qualification" placeholder="Qualification Required" required="">
@@ -126,13 +126,10 @@ require_once("../db.php");
                 </div>
               </form>
             </div>
-            
           </div>
         </div>
       </div>
     </section>
-
-    
 
   </div>
   <!-- /.content-wrapper -->
@@ -158,5 +155,15 @@ require_once("../db.php");
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <!-- AdminLTE App -->
 <script src="../js/adminlte.min.js"></script>
+
+<!-- Confirmation script -->
+<script>
+  document.getElementById('createJobForm').addEventListener('submit', function(event) {
+    var confirmCreate = confirm('Are you sure you want to create this job post?');
+    if (!confirmCreate) {
+      event.preventDefault();
+    }
+  });
+</script>
 </body>
 </html>

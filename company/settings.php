@@ -85,7 +85,7 @@ if(empty($_SESSION['id_company'])) {
                   <li><a href="mailbox.php"><i class="fa fa-envelope"></i> Mailbox</a></li>
                   <li class="active"><a href="settings.php"><i class="fa fa-gear"></i> Settings</a></li>
                   <li><a href="resume-database.php"><i class="fa fa-user"></i> Resume Database</a></li>
-                  <li><a href="../logout.php"><i class="fa fa-arrow-circle-o-right"></i> Logout</a></li>
+                  <li><a href="../logout.php" id="logout-link"><i class="fa fa-arrow-circle-o-right"></i> Logout</a></li>
                 </ul>
               </div>
             </div>
@@ -171,6 +171,14 @@ if(empty($_SESSION['id_company'])) {
       $('#passwordError').show();
     } else {
       $(this).unbind('submit').submit();
+    }
+  });
+
+  // Confirmation for logout
+  document.getElementById('logout-link').addEventListener('click', function(event) {
+    var confirmLogout = confirm('Are you sure you want to logout?');
+    if (!confirmLogout) {
+      event.preventDefault();
     }
   });
 </script>
