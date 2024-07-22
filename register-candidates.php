@@ -112,7 +112,7 @@ if(isset($_SESSION['id_user']) || isset($_SESSION['id_company'])) {
               </div>
               <div class="form-group">
                 <label>Date Of Birth</label>
-                <input class="form-control input-lg" type="date" id="dob" min="1960-01-01" max="1999-01-31" name="dob" placeholder="Date Of Birth">
+                <input class="form-control input-lg" type="date" id="dob" min="1960-01-01" max="2005-01-31" name="dob" placeholder="Date Of Birth">
               </div>
               <div class="form-group">
                 <input class="form-control input-lg" type="text" id="age" name="age" placeholder="Age" readonly>
@@ -181,7 +181,7 @@ if(isset($_SESSION['id_user']) || isset($_SESSION['id_company'])) {
               </div>
 
               <div class="form-group">
-                <label style="color: red;">File Format PDF Only!</label>
+                <label style="color: red;">Upload Resume File Format PDF Only!</label>
                 <input type="file" name="resume" class="btn btn-flat btn-danger" required>
               </div>
             </div>
